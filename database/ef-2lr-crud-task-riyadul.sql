@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.9
+-- version 4.8.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 24, 2019 at 01:04 PM
--- Server version: 10.1.31-MariaDB
--- PHP Version: 7.2.3
+-- Generation Time: Apr 24, 2019 at 08:24 PM
+-- Server version: 10.1.37-MariaDB
+-- PHP Version: 7.3.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -103,7 +103,12 @@ CREATE TABLE `posts` (
 --
 
 INSERT INTO `posts` (`id`, `category_id`, `title`, `slug`, `image`, `description`, `status`, `created_at`, `updated_at`) VALUES
-(23, 5, 'dsfsa', NULL, 'dsfsa-2019-04-24.jpg', 'asfdfda', 1, '2019-04-24 04:34:57', '2019-04-24 04:34:57');
+(24, 5, 'An Elegant Breakfast At Home', NULL, 'an-elegant-breakfast-at-home-2019-04-24.jpg', 'Lorem ipsum dolor sites amet, conse ctetur adipis cing elit. Cras vitae nibhe nisl. Cras et meauris egets lorem ultr icies fermentum a in diam. Morbi mollis pellentesque aug ueso nec rhoncus. Nam utbs orci augue....', 1, '2019-04-24 12:11:59', '2019-04-24 12:11:59'),
+(25, 6, 'While Watching The Rain', NULL, 'while-watching-the-rain-2019-04-24.jpg', 'Lorem ipsum dolor sites amet, conse ctetur adipis cing elit. Cras vitae nibhe nisl. Cras et meauris egets lorem ultr icies fermentum a in diam. Morbi mollis pellentesque aug ueso nec rhoncus. Nam utbs orci augue....', 1, '2019-04-24 12:12:55', '2019-04-24 12:12:55'),
+(26, 7, 'Fashion In The Country', NULL, 'fashion-in-the-country-2019-04-24.jpg', 'Lorem ipsum dolor sites amet, conse ctetur adipis cing elit. Cras vitae nibhe nisl. Cras et meauris egets lorem ultr icies fermentum a in diam. Morbi mollis pellentesque aug ueso nec rhoncus. Nam utbs orci augue....', 1, '2019-04-24 12:13:45', '2019-04-24 12:13:45'),
+(27, 7, 'Favorite New York Bars', NULL, 'favorite-new-york-bars-2019-04-24.jpg', 'Lorem ipsum dolor sites amet, conse ctetur adipis cing elit. Cras vitae nibhe nisl. Cras et meauris egets lorem ultr icies fermentum a in diam. Morbi mollis pellentesque aug ueso nec rhoncus. Nam utbs orci augue....', 1, '2019-04-24 12:14:48', '2019-04-24 12:14:48'),
+(28, 8, 'We Work Together For Fun', NULL, 'we-work-together-for-fun-2019-04-24.jpg', 'Lorem ipsum dolor sites amet, conse ctetur adipis cing elit. Cras vitae nibhe nisl. Cras et meauris egets lorem ultr icies fermentum a in diam. Morbi mollis pellentesque aug ueso nec rhoncus. Nam utbs orci augue....', 1, '2019-04-24 12:15:57', '2019-04-24 12:15:57'),
+(29, 8, 'While Watching The Rain', NULL, 'while-watching-the-rain-2019-04-24.jpg', 'Lorem ipsum dolor sites amet, conse ctetur adipis cing elit. Cras vitae nibhe nisl. Cras et meauris egets lorem ultr icies fermentum a in diam. Morbi mollis pellentesque aug ueso nec rhoncus. Nam utbs orci augue....', 1, '2019-04-24 12:16:31', '2019-04-24 12:16:31');
 
 -- --------------------------------------------------------
 
@@ -173,7 +178,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `migrations`
@@ -185,7 +190,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `users`
