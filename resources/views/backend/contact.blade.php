@@ -14,9 +14,8 @@
                             <div class="card-body">
                                 {{--<h6 class="card-category text-gray">Junior Laravel Developer</h6>--}}
                                 <h4 class="card-title">Laravel Developer</h4>
-                                <p class="card-description">
-                                    Don't be scared of the truth because we need to restart the human foundation in truth And I love you like Kanye loves Kanye I love Rick Owens’ bed design but the back is...
-                                </p>
+                                <p class="card-description">01676275506</p>
+                                <p class="card-description">starriyadul@gmail.com</p>
                                 <a href="#pablo" class="btn btn-rose btn-round">Riyadul</a>
                             </div>
                         </div>

@@ -28,20 +28,20 @@
 								<tbody>
 									@foreach($posts as $key=>$post)
 									<tr>
-										<td>{{$key + 1}}</td>
-										<td>{{$post->title}}</td>
-										<td><img src="{{asset('backend/img/post/'.$post->image)}}" alt="" height="50px" width="100"></td>
+										<td style="width: 5%">{{$key + 1}}</td>
+										<td style="width: 20%">{{$post->title}}</td>
+										<td style="width: 15%"><img src="{{asset('backend/img/post/'.$post->image)}}" alt="" height="100px" width="150px"></td>
 										{{--<td>{{$post->name}}</td>--}}
-										<td>{{$post->description}}</td>
-										<td>
+										<td style="width: 30%">{{$post->description}}</td>
+										<td style="width: 10%">
 											@if($post->status == true)
 												<button class="btn btn-success btn-sm">Active</button>
 											@else
 												<button class="btn btn-danger btn-sm">Inactive</button>
 											@endif
 										</td>
-										<td>{{$post->created_at->format('d M Y')}}</td>
-										<td class="td-actions text-right">
+										<td style="width: 10%">{{$post->created_at->format('d M Y')}}</td>
+										<td style="width: 10%" class="td-actions text-right">
 											<a href="{{route('postEdit',$post->id)}}" class="btn btn-success"><i class="material-icons">edit</i></a>
 											<form id="delete-form-{{ $post->id }}" action="{{ route('postDestroy',$post->id) }}" style="display: none;" method="POST">
 												@csrf
