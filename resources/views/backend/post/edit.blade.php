@@ -8,43 +8,48 @@
 				<div class="card ">
 					<div class="card-header card-header-rose card-header-text">
 						<div class="card-text">
-							<h4 class="card-title">Edit Category</h4>
+							<h4 class="card-title">Edit Post</h4>
 						</div>
 					</div>
 					<div class="card-body ">
-						<form method="POST" action="{{route('item.update',$item->id)}}" class="form-horizontal" enctype="multipart/form-data">
+						<form method="POST" action="{{route('postUpdate')}}" class="form-horizontal" enctype="multipart/form-data">
 							@csrf
-							@method('PUT')
+							{{--@method('PUT')--}}
+							<input type="hidden" name="post_id" value="{{$post->id}}">
 							<div class="card ">
 								<div class="card-header card-header-rose card-header-icon">
-									<h4 class="card-title text-center">Create Item Form</h4>
+									<h4 class="card-title text-center">Edit Post Form</h4>
 								</div>
 								<div class="card-body ">
 									<div class="form-group">
 										<label class="control-label">Category</label>
-										<select class="form-control" name="category">
+										<select class="form-control" name="category_id">
 											@foreach($categories as $category)
-											<option {{$category->id == $item->category->id ? 'selected' : ''}} value="{{ $category->id }}">{{ $category->name }}</option>
+											<option {{$category->id == $post->category_id ? 'selected' : ''}} value="{{ $category->id }}">{{ $category->name }}</option>
 											@endforeach
 										</select>
 									</div>
 									<div class="form-group">
-										<label class="bmd-label-floating">Name</label>
-										<input type="text" class="form-control" name="name" required="true" value="{{$item->name}}">
+										<label class="bmd-label-floating">Title</label>
+										<input type="text" class="form-control" name="title" required="true" value="{{$post->title}}">
 									</div>
 									<div class="form-group">
 										<label class="bmd-label-floating">Description</label>
-										<textarea class="form-control" name="description" required="true">{{$item->description}}</textarea>
+										<textarea class="form-control" name="description" required="true">{{$post->description}}</textarea>
 									</div>
 									<div class="form-group">
-										<label class="bmd-label-floating">Price</label>
-										<input type="text" class="form-control " oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');" name="price" value="{{$item->price}}">
+										<label class="control-label">Status</label>
+										<select class="form-control" name="status" required>
+											<option disabled selected valu >Select One</option>
+											<option value="1">Active</option>
+											<option value="0" selected="selected" >Inactive</option>
+										</select>
 									</div>
 									<div class="row">
 											<div class="col-sm-10">
 												<div class="fileinput fileinput-new text-center" data-provides="fileinput">
 													<div class="fileinput-new thumbnail">
-														<img src="{{asset('frontend/images/item/'.$item->image)}}">
+														<img src="{{asset('backend/img/post/'.$post->image)}}">
 													</div>
 													<div class="fileinput-preview fileinput-exists thumbnail"></div>
 													<div>
@@ -60,7 +65,7 @@
 										</div>
 									</div>
 									<div class="form-group">
-										<a href="{{route('item.index')}}" class="btn btn-danger btn-md" >Back</a>
+										<a href="{{route('postList')}}" class="btn btn-danger btn-md" >Back</a>
 										<button class="btn btn-primary btn-md" >save</button>
 									</div>
 								</div>

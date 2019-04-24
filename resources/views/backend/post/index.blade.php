@@ -18,7 +18,7 @@
 										<th>ID</th>
 		                                <th>Title</th>
 		                                <th>Image</th>
-		                                <th>Category</th>
+		                                {{--<th>Category</th>--}}
 		                                <th>Description</th>
 										<th>Status</th>
 		                                <th>Time</th>
@@ -31,30 +31,29 @@
 										<td>{{$key + 1}}</td>
 										<td>{{$post->title}}</td>
 										<td><img src="{{asset('backend/img/post/'.$post->image)}}" alt="" height="50px" width="100"></td>
-										<td>{{$post->name}}</td>
+										{{--<td>{{$post->name}}</td>--}}
 										<td>{{$post->description}}</td>
 										<td>
 											@if($post->status == true)
-												<button class="btn btn-success btn-sm">Confirmed</button>
+												<button class="btn btn-success btn-sm">Active</button>
 											@else
-												<button class="btn btn-danger btn-sm">Not Confirmed</button>
+												<button class="btn btn-danger btn-sm">Inactive</button>
 											@endif
 										</td>
 										<td>{{$post->created_at->format('d M Y')}}</td>
-										<td>e</td>
-										{{--<td class="td-actions text-right">--}}
-											{{--<a href="{{route('item.edit',$item->id)}}" class="btn btn-success"><i class="material-icons">edit</i></a>--}}
-											{{--<form id="delete-form-{{ $item->id }}" action="{{ route('item.destroy',$item->id) }}" style="display: none;" method="POST">--}}
-												{{--@csrf--}}
+										<td class="td-actions text-right">
+											<a href="{{route('postEdit',$post->id)}}" class="btn btn-success"><i class="material-icons">edit</i></a>
+											<form id="delete-form-{{ $post->id }}" action="{{ route('postDestroy',$post->id) }}" style="display: none;" method="POST">
+												@csrf
 												{{--@method('DELETE')--}}
-											{{--</form>--}}
-											{{--<button type="button" class="btn btn-danger btn-sm" onclick="if(confirm('Are you sure? You want to delete this?')){--}}
-											{{--event.preventDefault();--}}
-											{{--document.getElementById('delete-form-{{ $item->id }}').submit();--}}
-											{{--}else {--}}
-											{{--event.preventDefault();--}}
-											{{--}"><i class="material-icons">delete</i></button>--}}
-										{{--</td>--}}
+											</form>
+											<button type="button" class="btn btn-danger btn-sm" onclick="if(confirm('Are you sure? You want to delete this?')){
+											event.preventDefault();
+											document.getElementById('delete-form-{{ $post->id }}').submit();
+											}else {
+											event.preventDefault();
+											}"><i class="material-icons">delete</i></button>
+										</td>
 									</tr>
 									@endforeach
 								</tbody>

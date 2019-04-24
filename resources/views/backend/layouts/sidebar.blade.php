@@ -70,8 +70,8 @@
                                 <span class="sidebar-normal">List Post</span>
                             </a>
                         </li>
-                        <li class="nav-item {{ Request::is('item/create') ? 'active' : ''}}">
-                            <a class="nav-link" href="{{ URL::to('item/create')}}">
+                        <li class="nav-item {{ Request::is('post-add') ? 'active' : ''}}">
+                            <a class="nav-link" href="{{ URL::to('post-add')}}">
                                 <i class="material-icons">add</i>
                                 <span class="sidebar-normal">Add Post</span>
                             </a>
@@ -95,8 +95,8 @@
                                 <span class="sidebar-normal">List Category</span>
                             </a>
                         </li>
-                        <li class="nav-item {{ Request::is('category/create') ? 'active' : ''}}">
-                            <a class="nav-link" href="{{ URL::to('category/create')}}">
+                        <li class="nav-item {{ Request::is('category-add') ? 'active' : ''}}">
+                            <a class="nav-link" href="{{ URL::to('category-add')}}">
                                 <i class="material-icons">add</i>
                                 <span class="sidebar-normal">Add Category</span>
                             </a>

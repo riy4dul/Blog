@@ -33,12 +33,11 @@
 										<td>{{$category->slug}}</td>
 										<td>{{$category->created_at->format('d M Y')}}</td>
 										<td class="td-actions text-right">
-											{{--<a href="{{route('category.edit',$category->id)}}" class="btn btn-success"><i class="material-icons">edit</i></a>--}}
-											<a href="" class="btn btn-success"><i class="material-icons">edit</i></a>
-											{{--<form id="delete-form-{{ $category->id }}" action="{{ route('category.destroy',$category->id) }}" style="display: none;" method="POST">--}}
+											<a href="{{route('categoryEdit',$category->id)}} "  class="btn btn-success"><i class="material-icons" >edit</i></a>
+											<form id="delete-form-{{ $category->id }}" action="{{ route('categoryDestroy',$category->id) }}" style="display: none;" method="POST">
 											<form id="delete-form-{{ $category->id }}" action="" style="display: none;" method="POST">
 												@csrf
-												@method('DELETE')
+												{{--@method('DELETE')--}}
 											</form>
 											<button type="button" class="btn btn-danger btn-sm" onclick="if(confirm('Are you sure? You want to delete this?')){
 											event.preventDefault();

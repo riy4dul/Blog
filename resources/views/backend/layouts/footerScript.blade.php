@@ -27,7 +27,6 @@
 <script src="{{asset('')}}backend/js/plugins/fullcalendar.min.js"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-{!! Toastr::message() !!}
 <!-- demo init -->
 <script src="{{asset('')}}backend/js/plugins/demo.js"></script>
 <script type="text/javascript">
@@ -224,3 +223,11 @@ src="https://www.facebook.com/tr?id=111649226022273&amp;ev=PageView&amp;noscript
                     console.log('Facebook Track Error:', err);
                 }
                 </script>
+@if ($errors->any())
+    @foreach ($errors->all() as $error)
+        <script>
+            toastr.error('{{ $error }}');
+        </script>
+    @endforeach
+@endif
+{!! Toastr::message() !!}

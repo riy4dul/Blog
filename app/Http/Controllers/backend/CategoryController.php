@@ -5,7 +5,7 @@ namespace App\Http\Controllers\backend;
 use App\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
+use Brian2694\Toastr\Facades\Toastr;
 class CategoryController extends Controller
 {
     /**
@@ -26,7 +26,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('backend.category.create');
     }
 
     /**
@@ -37,7 +37,17 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $this->validate($request,[
+            'name'=> 'required'
+        ]);
+
+        $category = new Category();
+        $category->name = $request->name;
+        $category->slug = str_slug($request->name);
+        $category->save();
+        Toastr::success('Category successfully Created','Success',["positionClass" => "toast-top-right"]);
+        return redirect('category-list');
     }
 
     /**
@@ -59,7 +69,9 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        //
+        $category = Category::find($id);
+
+        return view('backend.category.edit',compact('category'));
     }
 
     /**
@@ -69,9 +81,17 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        $this->validate($request,[
+            'name'=>'required'
+        ]);
+        $category = Category::find($request->category_id);
+        $category->name = $request->name;
+        $category->slug = str_slug($request->name);
+        $category->save();
+        Toastr::success('Category Update successfully','Success',["positionClass" => "toast-top-right"]);
+        return redirect('category-list');
     }
 
     /**
@@ -82,6 +102,9 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $category = Category::find($id);
+        $category->delete();
+        Toastr::success('Category Deleted successfully','Success',["positionClass" => "toast-top-right"]);
+        return redirect('category-list');
     }
 }

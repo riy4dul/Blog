@@ -12,14 +12,16 @@
 					</div>
 				</div>
 				<div class="card-body ">
-					<form method="POST" action="{{route('category.update',$category->id)}}" class="form-horizontal">
+					{{--<form method="POST" action="{{route('categoryUpdate',$category->id)}}" class="form-horizontal">--}}
+					<form method="POST" action="{{route('categoryUpdate')}}" class="form-horizontal">
 						@csrf
-						@method('PUT')
+						{{--@method('PUT')--}}
+						<input type="hidden" name="category_id" value="{{$category->id}}">
 						<div class="row">
-							<label class="col-sm-2 col-form-label">{{$category->name}}</label>
+							<label class="col-sm-2 col-form-label">Name</label>
 							<div class="col-sm-10">
 								<div class="form-group">
-									<input type="text" class="form-control" name="name" value="{{$category->name}}">
+									<input type="text" class="form-control" name="name" value="{{$category->name}}" required>
 								</div>
 							</div>
 						</div>
@@ -27,7 +29,7 @@
 							<label class="col-sm-2 col-form-label"></label>
 							<div class="col-sm-10">
 								<div class="form-group">
-									<a href="{{route('category.index')}}" class="btn btn-danger btn-lg" >Back</a>
+									<a href="{{route('categoryList')}}" class="btn btn-danger btn-lg" >Back</a>
 									<button class="btn btn-primary btn-lg" >save</button>
 								</div>
 							</div>

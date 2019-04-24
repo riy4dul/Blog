@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 23, 2019 at 02:26 PM
+-- Generation Time: Apr 24, 2019 at 01:04 PM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 7.2.3
 
@@ -41,7 +41,10 @@ CREATE TABLE `categories` (
 --
 
 INSERT INTO `categories` (`id`, `name`, `slug`, `created_at`, `updated_at`) VALUES
-(1, 'Birthday Party', 'birthday-party', '2019-04-22 18:00:00', '2019-04-22 18:00:00');
+(5, 'Birthday Party', 'birthday-party', '2019-04-24 01:19:49', '2019-04-24 01:19:49'),
+(6, 'Wedding', 'wedding', '2019-04-24 01:20:54', '2019-04-24 01:20:54'),
+(7, 'Concert', 'concert', '2019-04-24 01:21:16', '2019-04-24 01:21:16'),
+(8, 'Corporate', 'corporate', '2019-04-24 01:21:32', '2019-04-24 01:21:32');
 
 -- --------------------------------------------------------
 
@@ -87,10 +90,10 @@ CREATE TABLE `posts` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `category_id` int(11) NOT NULL,
   `title` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `slug` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `slug` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `image` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'default.png',
   `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `status` tinyint(1) NOT NULL DEFAULT '0',
+  `status` tinyint(1) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -100,8 +103,7 @@ CREATE TABLE `posts` (
 --
 
 INSERT INTO `posts` (`id`, `category_id`, `title`, `slug`, `image`, `description`, `status`, `created_at`, `updated_at`) VALUES
-(1, 1, 'Riyadul Birthday', 'riyadul-birthday', 'default.png', 'sdfafdsafafdfafaf', 1, '2019-04-22 18:00:00', '2019-04-22 18:00:00'),
-(2, 1, 'safd', 'afdaf', 'default.png', 'afda', 0, '2019-04-22 18:00:00', '2019-04-22 18:00:00');
+(23, 5, 'dsfsa', NULL, 'dsfsa-2019-04-24.jpg', 'asfdfda', 1, '2019-04-24 04:34:57', '2019-04-24 04:34:57');
 
 -- --------------------------------------------------------
 
@@ -171,7 +173,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `migrations`
@@ -183,7 +185,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `users`

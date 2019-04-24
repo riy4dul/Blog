@@ -12,13 +12,13 @@
 					</div>
 				</div>
 				<div class="card-body ">
-					<form method="POST" action="{{route('category.store')}}" class="form-horizontal" enctype="multipart/form-data">
+					<form method="POST" action="{{route('categoryStore')}}" class="form-horizontal" enctype="multipart/form-data">
 						@csrf
 						<div class="row">
 							<label class="col-sm-2 col-form-label">Name</label>
 							<div class="col-sm-10">
 								<div class="form-group">
-									<input type="text" class="form-control" name="name">
+									<input type="text" class="form-control" name="name" required>
 								</div>
 							</div>
 						</div>
@@ -26,7 +26,7 @@
 							<label class="col-sm-2 col-form-label"></label>
 							<div class="col-sm-10">
 								<div class="form-group">
-									<a href="{{route('category.index')}}" class="btn btn-danger btn-lg" >Back</a>
+									<a href="{{route('categoryList')}}" class="btn btn-danger btn-lg" >Back</a>
 									<button class="btn btn-primary btn-lg" >save</button>
 								</div>
 							</div>
